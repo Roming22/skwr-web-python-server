@@ -1,27 +1,11 @@
-# Template for a [SKWR](https://github.com/Roming22/skwr) module
+# Simple webserver for [SKWR](https://github.com/Roming22/skwr)
 
-## image/
+This server should be used with the skwr-web-nginx module.
 
-* `Dockerfile`: Used to create the container image.
-* `module`: This folder shoud contain a `bin` directory with a `run.sh` script that starts the service to be run by the container. Any static data should be under this directory as well.
-* `module/bin/run.sh`: Default entrypoint.
-* `module/bin/healthcheck.sh`: Default health check.
+## Goal
+This is a test webserver that displays current date/time of the client when displaying the page.
+This module can be used for testing http access and/or as a base for a simple website serving static content. 
 
-## etc/
+## Configuration
+N/A
 
-This directory holds the configuration of the systemd service as well as some of the docker options to be used when starting the container.
-
-### service.cfg
-
-* `DESCRIPTION`: The description of the systemd service.
-* `DOCKER_NETWORK`: By default each container is on its own network to isolate it. If multiple containers need to be connected together, set the DOCKER_NETWORK to a common value.
-* `DOCKER_OPTIONS`: Additional docker options.
-
-### *.env
-
-Any `*.env` file in this directory will be automatically loaded when the container is started.
-
-
-## volumes/
-
-* `config`: Configuration of the volumes to be mounted in the container. The format is `source/path/from/volumes:/target/path/in/container[:ro]`.
